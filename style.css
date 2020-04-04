@@ -7,7 +7,7 @@
 body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 100%;
-    height: 100vh;    
+    height: 100vh;      
 }
 
 .bg{  
@@ -20,6 +20,7 @@ body{
 .container{
   text-align: center;  
   font-size: 2vw;
+  user-select: none;  
 }
 
 .centered {
