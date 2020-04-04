@@ -8,7 +8,7 @@
 
     <title>Hi!!!</title>
 </head>
-<body style>
+<body onload="startTime()">
     <div class="bg">
         <div class="container centered">
             <h3 id="greet"></h3>
@@ -17,26 +17,47 @@
             <h1 id="mygreet"></h1>            
         </div>
     </div>
-    <script>
-        var d = new Date();
-        var Month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-        var day = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-        var hours = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"];
-        var greets = ["Selamat Pagi", "Selamat Siang", "Selamat Sore", "Selamat Malam"];
-        var mine = ["Have a Nice Day!!", "Keep the spirit for today!!", "Good Job, Keep It Up!!", "Exhausting day<br>Thanks for Today<br>Have a Nice Dream!!"];
-        var i;
-        document.getElementById("greet").innerHTML = day[d.getDay()] + " " + d.getDate() +" "+ Month[d.getMonth()] +" "+ d.getFullYear();
-        document.getElementById("aGreet").innerHTML = hours[d.getHours()] + ":" + d.getMinutes() +":"+ d.getSeconds();
-        if(d.getHours() >= 4 && d.getHours() <= 10)
-            i=0;
-        else if(d.getHours() > 10 && d.getHours() <= 14)
-            i=1;
-        else if(d.getHours() > 14 && d.getHours() <= 19)
-            i=2;
-        else
-            i=3;
-        document.getElementById("greeting").innerHTML = greets[i];
-        document.getElementById("mygreet").innerHTML = mine[i];
+    <script>                        
+        function startTime() {
+            var Month = ["Januari", "Februari", "Maret", "April", "Mei", 
+                        "Juni", "Juli", "Agustus", "September", 
+                        "Oktober", "November", "Desember"];
+            var day = ["Minggu", "Senin", "Selasa", 
+                        "Rabu", "Kamis", "Jumat", "Sabtu"];            
+            var greets = ["Selamat Pagi", "Selamat Siang", "Selamat Sore", "Selamat Malam"];
+            var mine = ["Have a Nice Day!!", "Keep the spirit for today!!", 
+                        "Good Job, Keep It Up!!", "Exhausting day<br>Thanks for Today<br>Have a Nice Dream!!"];
+            var i;
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var s = d.getSeconds();
+            h = checkTime(h);
+            m = checkTime(m);
+            s = checkTime(s);
+
+            document.getElementById("greet").innerHTML = 
+            day[d.getDay()] + " " + d.getDate() +" "+ Month[d.getMonth()] +" "+ d.getFullYear();  
+                 
+            document.getElementById("aGreet").innerHTML = 
+            h + ":" + m + ":" + s;
+
+            if(d.getHours() >= 4 && d.getHours() <= 10)
+                i=0;
+            else if(d.getHours() > 10 && d.getHours() <= 14)
+                i=1;
+            else if(d.getHours() > 14 && d.getHours() <= 19)
+                i=2;
+            else
+                i=3;
+            document.getElementById("greeting").innerHTML = greets[i];
+            document.getElementById("mygreet").innerHTML = mine[i];
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(n) {
+            if (n < 10) {n = "0" + n};  // add zero in front of numbers < 10
+            return n;
+        }
     </script>
 </body>
 </html>
