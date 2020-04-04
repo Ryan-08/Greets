@@ -10,18 +10,15 @@ body{
     height: 100vh;    
 }
 
-.bg{
-  background-image: url("wall.jpg");  
-  height: 100%;
-  background-position: center;
+.bg{  
+  height: 100%;  
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
 
 .container{
-  text-align: center;
-  color: palegreen;
+  text-align: center;  
   font-size: 2vw;
 }
 

@@ -19,14 +19,18 @@
     </div>
     <script>                        
         function startTime() {
+            const contain = document.querySelector(".container");
+            const bg = document.querySelector(".bg");
             var Month = ["Januari", "Februari", "Maret", "April", "Mei", 
                         "Juni", "Juli", "Agustus", "September", 
                         "Oktober", "November", "Desember"];
             var day = ["Minggu", "Senin", "Selasa", 
                         "Rabu", "Kamis", "Jumat", "Sabtu"];            
             var greets = ["Selamat Pagi", "Selamat Siang", "Selamat Sore", "Selamat Malam"];
-            var mine = ["Have a Nice Day!!", "Keep the spirit for today!!", 
+            var mine = ["Have a Nice Day!!", "Keep the Spirit for Today!!", 
                         "Good Job, Keep It Up!!", "Exhausting day<br>Thanks for Today<br>Have a Nice Dream!!"];
+            var color = ["white", "navy", "gray", "#800080"];
+            var backG = ["url('img/morn.jpg')", "url('img/noon.jpg')", "url('img/after.jpg')", "url('img/night.jpg')"];
             var i;
             var d = new Date();
             var h = d.getHours();
@@ -52,6 +56,9 @@
                 i=3;
             document.getElementById("greeting").innerHTML = greets[i];
             document.getElementById("mygreet").innerHTML = mine[i];
+            contain.style.color = color[i];  
+            bg.style.background = backG[i];
+            bg.style.setProperty("background-position", 'center');
             var t = setTimeout(startTime, 500);
         }
         function checkTime(n) {
