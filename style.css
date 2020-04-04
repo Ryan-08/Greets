@@ -1,5 +1,5 @@
 *{
-    margin: 0;
+    margin: 1;
     padding: 0;
     box-sizing: border-box;
 }
@@ -17,10 +17,10 @@ body{
   position: relative;
 }
 
-.container{
-  text-align: center;  
-  font-size: 2vw;
+.container{  
+  font-size: 2vw;  
   user-select: none;  
+  text-align: center;  
 }
 
 .centered {
